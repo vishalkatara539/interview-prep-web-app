@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Take Quiz - InterviewPrep Pro</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="quiz-container">
+    <!-- Quiz Header -->
+    <div class="quiz-header">
+      <div class="quiz-info">
+        <h2 id="quiz-category">Quiz</h2>
+        <p>Question <span id="current-q">1</span> of <span id="total-q">10</span></p>
+      </div>
+      <div class="quiz-timer">
+        <span class="timer-icon">⏱️</span>
+        <span class="timer-value" id="timer">30</span>
+      </div>
+    </div>
+
+    <!-- Quiz Card -->
+    <div class="quiz-card" id="quiz-card">
+      <div class="loading">
+        <div class="spinner"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/quiz.js"></script>
+</body>
+</html>
