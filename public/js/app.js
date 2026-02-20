@@ -1,7 +1,7 @@
 const API_URL = 'http://localhost:3000/api';
 
-// Check authentication localStorage.getItem
-const token =('token');
+// Check authentication
+const token = localStorage.getItem('token');
 const user = JSON.parse(localStorage.getItem('user') || 'null');
 
 if (!token || !user) {
