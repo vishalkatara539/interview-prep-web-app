@@ -86,13 +86,23 @@ if (db.questions.length === 0) {
     { id: 60, category: 'General Programming', question: 'What is a data structure?', options: ['Algorithm', 'Organization of data', 'Programming language', 'Output format'], correct_answer: 1 }
   ];
   
-  // Create admin user
+// Create admin user
   db.users.push({
     id: 1,
     username: 'admin',
     email: 'admin@interviewprep.com',
     password: hashPassword('admin123'),
     role: 'admin',
+    created_at: new Date().toISOString()
+  });
+  
+  // Create test user
+  db.users.push({
+    id: 2,
+    username: 'user',
+    email: 'user@test.com',
+    password: hashPassword('user123'),
+    role: 'user',
     created_at: new Date().toISOString()
   });
   
@@ -380,7 +390,17 @@ const server = http.createServer(async (req, res) => {
   
   // Serve static files
   let filePath = url === '/' ? '/index.html' : url;
-  filePath = path.join(__dirname, 'public', filePath);
+  
+  // Handle HTML page routes
+  if (url === '/admin') {
+    filePath = path.join(__dirname, 'public', 'admin.html');
+  } else if (url === '/dashboard') {
+    filePath = path.join(__dirname, 'public', 'dashboard.html');
+  } else if (url === '/quiz') {
+    filePath = path.join(__dirname, 'public', 'quiz.html');
+  } else {
+    filePath = path.join(__dirname, 'public', filePath);
+  }
   
   fs.readFile(filePath, (err, data) => {
     if (err) {
