@@ -204,3 +204,5 @@ menuToggle.addEventListener('click', () => {
 
 // Initialize
 loadCategories();
+loadHistory();
+document.getElementById('history-section').classList.remove('hidden');
